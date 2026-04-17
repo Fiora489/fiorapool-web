@@ -326,3 +326,8 @@ Mobile-first. All views must be fully functional on a phone in portrait mode. De
 ---
 
 *Last updated: 2026-04-17*
+
+---
+**Graduated:** 2026-04-17
+**Location:** `projects/fiorapool-web/`
+**README:** `projects/fiorapool-web/README.md`
