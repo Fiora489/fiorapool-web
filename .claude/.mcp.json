@@ -1,0 +1,8 @@
+1 {
+      2   "mcpServers": {
+      3     "magicui": {
+      4       "command": "npx",
+      5       "args": ["-y", "@magicui/mcp"]
+      6     }
+      7   }
+      8 }
