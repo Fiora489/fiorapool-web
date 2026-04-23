@@ -31,13 +31,13 @@ League players get the full FioraPool feature set in any browser on mobile, with
 - Social features — rival tracking, weekly XP race, season leaderboard
 
 ### Validated (Shipped)
-None yet.
+- Phase 1: Foundation — Auth (magic link), Riot account linking, summoner profile page, edge middleware, `/api/summoner/[puuid]` route. Schema: summoner_profiles, app_progress, app_settings with RLS.
 
 ### Active (In Progress)
 None yet.
 
 ### Planned (Next)
-- Phase 1: Foundation — Supabase Auth, Riot account linking, summoner profile page
+- Phase 2: Match History — Riot match-v5 integration, match list page (paginated, mobile-first), per-match stats, Supabase caching
 
 ### Out of Scope
 

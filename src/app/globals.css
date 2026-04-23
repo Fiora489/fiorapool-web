@@ -138,3 +138,92 @@ body {
     @apply font-sans;
   }
 }
+
+/* ── Accessibility ──────────────────────────────────────────────────── */
+
+/* Skip to content */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: top 0.1s;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Improved focus ring */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Colour-blind palettes ──────────────────────────────────────────── */
+/* Deuteranopia / Protanopia — replaces green/red with blue/orange */
+.cb-deuteranopia .text-green-400  { color: #60a5fa !important; }
+.cb-deuteranopia .text-red-400    { color: #fb923c !important; }
+.cb-deuteranopia .bg-green-500\/20 { background-color: rgba(96,165,250,0.2) !important; }
+.cb-deuteranopia .bg-red-500\/20   { background-color: rgba(251,146,60,0.2)  !important; }
+.cb-deuteranopia .bg-green-500    { background-color: #60a5fa !important; }
+.cb-deuteranopia .bg-red-500      { background-color: #fb923c !important; }
+.cb-deuteranopia .border-green-500\/30 { border-color: rgba(96,165,250,0.3) !important; }
+.cb-deuteranopia .border-red-500\/30   { border-color: rgba(251,146,60,0.3)  !important; }
+
+/* Tritanopia — replaces blue/yellow */
+.cb-tritanopia .text-green-400  { color: #f472b6 !important; }
+.cb-tritanopia .text-red-400    { color: #a78bfa !important; }
+.cb-tritanopia .bg-green-500    { background-color: #f472b6 !important; }
+.cb-tritanopia .bg-red-500      { background-color: #a78bfa !important; }
+
+/* ── Champion Accent Themes ─────────────────────────────────────────── */
+/* Applied as .theme-{champion} on <body> alongside .dark               */
+
+.dark.theme-fiora {
+  --primary: oklch(0.75 0.18 350);        /* Rose pink */
+  --primary-foreground: oklch(0.1 0 0);
+  --ring: oklch(0.75 0.18 350);
+}
+.dark.theme-camille {
+  --primary: oklch(0.72 0.1 220);         /* Steel blue */
+  --primary-foreground: oklch(0.1 0 0);
+  --ring: oklch(0.72 0.1 220);
+}
+.dark.theme-irelia {
+  --primary: oklch(0.65 0.22 290);        /* Purple */
+  --primary-foreground: oklch(0.98 0 0);
+  --ring: oklch(0.65 0.22 290);
+}
+.dark.theme-lux {
+  --primary: oklch(0.85 0.18 90);         /* Gold yellow */
+  --primary-foreground: oklch(0.1 0 0);
+  --ring: oklch(0.85 0.18 90);
+}
+.dark.theme-jinx {
+  --primary: oklch(0.68 0.22 180);        /* Cyan */
+  --primary-foreground: oklch(0.1 0 0);
+  --ring: oklch(0.68 0.22 180);
+}
+.dark.theme-yasuo {
+  --primary: oklch(0.72 0.1 200);         /* Wind blue */
+  --primary-foreground: oklch(0.1 0 0);
+  --ring: oklch(0.72 0.1 200);
+}
+.dark.theme-zed {
+  --primary: oklch(0.65 0.2 50);          /* Amber */
+  --primary-foreground: oklch(0.1 0 0);
+  --ring: oklch(0.65 0.2 50);
+}
+.dark.theme-ahri {
+  --primary: oklch(0.7 0.2 320);          /* Hot pink */
+  --primary-foreground: oklch(0.1 0 0);
+  --ring: oklch(0.7 0.2 320);
+}

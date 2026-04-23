@@ -5,39 +5,44 @@
 See: .paul/PROJECT.md (updated 2026-04-17)
 
 **Core value:** League players get the full FioraPool feature set in any browser on mobile, without being tied to the desktop app.
-**Current focus:** Project initialized — ready for Phase 1 planning
+**Current focus:** v0.2 Core Product — Phase 3 (Core Analytics) next
 
 ## Current Position
 
-Milestone: v0.1 Foundation (v0.1.0)
-Phase: Not yet started (Phase 1 of 17)
-Plan: None yet
-Status: Ready to plan
-Last activity: 2026-04-17 — PAUL initialized from PLANNING.md
+Milestone: v0.1 Foundation — COMPLETE ✓ (2026-04-18)
+Next milestone: v0.2 Core Product
+Phase: 3 of 17 (Core Analytics) — In progress
+Plan: 04-02 (Badge system — chains + mastery) — not yet started
+Status: Ready for PLAN
+Last activity: 2026-04-18 — 04-01 COMPLETE (zero TS errors in progression files)
 
 Progress:
-- Milestone: [░░░░░░░░░░] 0%
-- Phase: [░░░░░░░░░░] 0%
+- Milestone v0.1: [██████████] 100% — complete ✓
+- Phase 1: [██████████] 100% — complete ✓
+- Phase 2: [██████████] 100% — complete ✓
+- Phase 3: [██████████] 100% — complete ✓
 
 ## Loop Position
 
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ○        ○        ○     [Ready for first PLAN]
+  ✓        ✓        ✓     [04-01 complete]
 ```
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: -
-- Total execution time: -
+- Total plans completed: 4
+- Average duration: ~14min
+- Total execution time: ~55min
 
 **By Phase:**
 
 | Phase | Plans | Total Time | Avg/Plan |
 |-------|-------|------------|----------|
-| 01-Foundation | 0/3 | - | - |
+| 01-Foundation | 1/1 | ~15min | ~15min |
+| 02-Match History | 3/3 | ~35min | ~12min |
+| 03-Core Analytics | 3/3 | ~38min | ~13min |
 
 ## Accumulated Context
 
@@ -51,6 +56,10 @@ PLAN ──▶ APPLY ──▶ UNIFY
 | Route Handlers over tRPC | Init | Plain REST, no overhead |
 | Riot API + Claude API server-side only | Init | Security invariant — never expose keys to browser |
 | JSONB for match raw_data | Init | Avoids schema migration hell as Riot API evolves |
+| useFormStatus over useState+fetch | 02-02 | sync route returns 307 redirect; fetch can't follow it cleanly |
+| PostGameSummary as server component | 02-02 | Data pre-fetched in page.tsx; no client fetch needed |
+| Analytics lib as pure module | 03-01 | No Supabase imports in analytics.ts — any consumer (page, route) can call functions directly |
+| select('*') for analytics queries | 03-01 | Avoids TypeScript cast from partial select to MatchRow[]; matches table has no large JSONB raw_data |
 
 ### Deferred Issues
 
@@ -60,10 +69,12 @@ PLAN ──▶ APPLY ──▶ UNIFY
 | Pro build scraper ToS (Phase 10) | Init | S | When Phase 10 begins |
 | PWA offline scope | Init | S | When Phase 16 begins |
 | Community hub approach (GitHub vs Supabase) | Init | S | When Phase 17 begins |
+| user_badges DB type mismatch (tsc errors in progress/api) | 02-02 | S | When progress phase begins |
+| CHAMPION_ARCHETYPES apostrophe keys (Kha'Zix etc.) | 03-01 | S | Verify against sync route extractMatchRow when 03-03 begins |
 
 ### Blockers/Concerns
 
-None yet.
+None.
 
 ## Boundaries (Active)
 
@@ -71,10 +82,10 @@ None — no active plan.
 
 ## Session Continuity
 
-Last session: 2026-04-17
-Stopped at: PAUL initialized — all files created from PLANNING.md
-Next action: Run /paul:plan to define Phase 1 plans
-Resume context: Phase 1 scope = Next.js scaffold + Supabase schema + Auth + Riot account linking + summoner profile page
+Last session: 2026-04-18
+Stopped at: 04-01 UNIFY complete
+Next action: /paul:plan — Phase 4 Plan 02 (Badge system)
+Resume file: .paul/phases/04-progression-core/04-01-SUMMARY.md
 
 ---
 *STATE.md — Updated after every significant action*

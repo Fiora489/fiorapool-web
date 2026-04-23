@@ -1,25 +1,20 @@
 import { createClient } from '@/lib/supabase/server'
 import { LinkRiotForm } from './link-riot-form'
+import { ThemePicker } from './theme-picker'
 
 export default async function ProfilePage() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
-  const { data: profile } = await supabase
-    .from('summoner_profiles')
-    .select('*')
-    .eq('user_id', user!.id)
-    .maybeSingle()
-
-  const { data: progress } = await supabase
-    .from('app_progress')
-    .select('*')
-    .eq('user_id', user!.id)
-    .maybeSingle()
+  const [{ data: profile }, { data: progress }, { data: settings }] = await Promise.all([
+    supabase.from('summoner_profiles').select('*').eq('user_id', user!.id).maybeSingle(),
+    supabase.from('app_progress').select('*').eq('user_id', user!.id).maybeSingle(),
+    supabase.from('app_settings').select('accent_champion').eq('user_id', user!.id).maybeSingle(),
+  ])
 
   return (
     <main className="min-h-screen p-8">
-      <div className="max-w-2xl mx-auto space-y-8">
+      <div className="max-w-2xl mx-auto space-y-6">
         <h1 className="text-2xl font-bold">Profile</h1>
 
         {profile ? (
@@ -44,20 +39,22 @@ export default async function ProfilePage() {
             )}
 
             <p className="text-xs text-muted-foreground">
-              Last synced: {profile.last_synced
-                ? new Date(profile.last_synced).toLocaleString()
-                : 'Never'}
+              Last synced: {profile.last_synced ? new Date(profile.last_synced).toLocaleString() : 'Never'}
             </p>
           </div>
         ) : (
           <div className="rounded-lg border border-border p-6 space-y-4">
             <h2 className="font-semibold">Link your Riot account</h2>
-            <p className="text-sm text-muted-foreground">
-              Enter your Riot ID to get started (e.g. Fiora489#EUW).
-            </p>
+            <p className="text-sm text-muted-foreground">Enter your Riot ID to get started (e.g. Fiora489#EUW).</p>
             <LinkRiotForm />
           </div>
         )}
+
+        {/* Theme picker */}
+        <div className="rounded-lg border border-border p-6 space-y-4">
+          <h2 className="text-sm font-medium uppercase tracking-wide text-muted-foreground">Champion Theme</h2>
+          <ThemePicker current={settings?.accent_champion ?? 'default'} />
+        </div>
       </div>
     </main>
   )

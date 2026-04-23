@@ -5,7 +5,11 @@
       "mcp__claude_ai_Supabase__list_organizations",
       "mcp__8661f1ed-486b-4206-b498-69f16ced3c70__list_projects",
       "mcp__8661f1ed-486b-4206-b498-69f16ced3c70__list_migrations",
-      "mcp__8661f1ed-486b-4206-b498-69f16ced3c70__apply_migration"
+      "mcp__8661f1ed-486b-4206-b498-69f16ced3c70__apply_migration",
+      "Bash(npx supabase *)",
+      "Bash(mkdir -p \"/c/Users/guter/Desktop/Second Brain/projects/fiorapool-web/src/app/api/rivals\")",
+      "Bash(mkdir -p \"/c/Users/guter/Desktop/Second Brain/projects/fiorapool-web/src/app/\\(app\\)/rivals\")",
+      "Bash(npm install *)"
     ]
   }
 }

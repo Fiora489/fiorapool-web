@@ -9,8 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.90.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.0",
+    "@resvg/resvg-js": "^2.6.2",
     "@supabase/ssr": "^0.10.2",
     "@supabase/supabase-js": "^2.103.3",
     "class-variance-authority": "^0.7.1",
@@ -24,6 +26,8 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-use-measure": "^2.1.7",
+    "recharts": "^3.8.1",
+    "satori": "^0.26.0",
     "shadcn": "^4.3.0",
     "tailwind-merge": "^3.5.0",
     "three": "^0.184.0",

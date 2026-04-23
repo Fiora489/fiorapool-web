@@ -8,25 +8,25 @@ FioraPool Web builds from a working authenticated shell through analytics and pr
 
 | Version | Name | Phases | Status | Completed |
 |---------|------|--------|--------|-----------|
-| v0.1 | Foundation | 1–2 | 📋 Planned | - |
+| v0.1 | Foundation | 1–2 | ✅ Complete | 2026-04-18 |
 | v0.2 | Core Product | 3–5 | 📋 Planned | - |
 | v0.3 | Deep Analytics | 6–8 | 📋 Planned | - |
 | v0.4 | AI Suite | 9–11 | 📋 Planned | - |
 | v0.5 | Engagement & Polish | 12–14 | 📋 Planned | - |
 | v1.0 | Production Ready | 15–17 | 📋 Planned | - |
 
-## 📋 Active Milestone: v0.1 Foundation
+## ✅ Completed Milestone: v0.1 Foundation
 
 **Goal:** Working authenticated app — log in, link Riot account, browse match history on mobile.
-**Status:** Not started
-**Progress:** [░░░░░░░░░░] 0%
+**Status:** Complete — 2026-04-18
+**Progress:** [██████████] 100%
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 1 | Foundation | TBD | Not started | - |
-| 2 | Match History | TBD | Not started | - |
+| 1 | Foundation | 1 | Complete ✓ | 2026-04-18 |
+| 2 | Match History | 3 | Complete ✓ | 2026-04-18 |
 | 3 | Core Analytics | TBD | Not started | - |
 | 4 | Progression Core | TBD | Not started | - |
 | 5 | Social & Rivals | TBD | Not started | - |
