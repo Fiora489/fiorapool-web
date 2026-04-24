@@ -5,15 +5,16 @@
 See: .paul/PROJECT.md (updated 2026-04-17)
 
 **Core value:** League players get the full FioraPool feature set in any browser on mobile, without being tied to the desktop app.
-**Current focus:** v1.1 COMPLETE ✓ — all 30 feature pages + asset pipeline + design system shipped
+**Current focus:** v1.3 Ultimate Build Creator + Hub — IN PROGRESS
 
 ## Current Position
 
-Milestone: v1.1 Post-Launch Fixes — COMPLETE ✓ (2026-04-24)
-Phase: 47 of 47 (Design System) — COMPLETE ✓
-Plan: 47-01 unified
-Status: v1.1 FULLY SHIPPED — ready for user verification / next milestone
-Last activity: 2026-04-24 — 43-47 batched (auto-mode)
+Milestone: v1.3 Ultimate Build Creator + Hub — 🚧 IN PROGRESS
+Phase: 65 of 67 (Desktop Sync API) — COMPLETE ✓
+Plans written: 13 logic/API phases (53-65) + 2 deferred UI stubs (66, 67)
+Design doc: `.paul/MILESTONE-v1.3-BUILD-CREATOR.md`
+Status: Phases 59–65 shipped in one session — extended filters, social layer, match tagging, visual diff, patch lifecycle, gamification hooks, desktop sync API
+Last activity: 2026-04-27 — Phases 59–65 unified (394/394 tests, 0 new TS errors); ready for Phase 66
 
 Progress:
 - Milestone v0.1: [██████████] 100% — complete ✓
@@ -23,12 +24,14 @@ Progress:
 - Milestone v0.5: [██████████] 100% — complete ✓
 - Milestone v1.0: [██████████] 100% — complete ✓ (LIVE on Vercel)
 - Milestone v1.1: [██████████] 100% — complete ✓ (30/30 phases)
+- Milestone v1.2: [██████████] 100% — complete ✓ (Prism Redesign, 5/5 phases)
+- Milestone v1.3: [█████████░]  87% — 13/15 phases complete
 
 ## Loop Position
 
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [v1.1 complete]
+  ✓        ✓        ✓     [Phase 65 complete; Phase 66 (Build Creator UI) next]
 ```
 
 ## What Was Built (all sessions)
@@ -88,42 +91,44 @@ PLAN ──▶ APPLY ──▶ UNIFY
 | 46 | Asset Pipeline | ✓ ChampionIcon/Splash/ItemIcon |
 | 47 | Design System | ✓ UI primitives + grouped nav |
 
-## Remaining Actions
-
-None — v1.1 complete. Options:
-- Deploy v1.1 to Vercel (push to main, auto-deploy triggers)
-- Plan next milestone (v1.2 — the 70 Coming features from desktop roadmap)
+### v1.3 — Build Creator + Hub
+| Phase | Name | Status |
+|-------|------|--------|
+| 53 | Build Creator Foundation | ✓ 10-table schema + types + helpers + actions + list page |
+| 54 | Editor Item Composition | ✓ items-catalogue + stat/gold compute + autosave + saveBuildDraft |
+| 55 | Rune Page Logic | ✓ rune tree + spells + skill order + combos + 7 actions |
+| 56 | Matchup & Metadata Logic | ✓ matchup/conditionals/tags/warding/description/patch-stamp + 10 actions |
+| 57 | Editor Polish Logic | ✓ lint (6 rules) + dupe detection + undo/redo + block templates + 3 actions |
+| 58 | Hub Query Infrastructure | ✓ pg_trgm migration + tsvector trigger + hub query builder + cosine similarity + saved searches + 3 actions |
+| 59 | Extended Filter + Search | ✓ hub_top_tags fn + hub_search_log table + itemIds/keystoneId/spellPair/hasMatchupAgainst filters + hub-facets + hub-trending + logHubSearchAction |
+| 60 | Social Layer | ✓ build_bookmarks + build_collections + RLS + 7 actions (social.ts, actions-social.ts) |
+| 61 | Performance Tracking | ✓ build_personal_wr + build_aggregate_wr views + autoTagBuildForMatch + 3 actions (performance.ts, actions-perf.ts) |
+| 62 | Visual Diff | ✓ diffBlocks/diffBuilds (pure) + GET /api/builds/diff + /api/builds/[id]/card ImageResponse |
+| 63 | Patch Lifecycle | ✓ getPatchBumpList + getStalenessReport + bulkMarkValidated + 3 actions (patch-lifecycle.ts, actions-patch.ts) |
+| 64 | Gamification Hooks | ✓ awardBuildXp + checkAndAwardArchitectBadges + isFirstToPatch + 3 actions (gamification.ts, actions-gamification.ts) |
+| 65 | Desktop Sync API | ✓ SHA-256 key hashing + desktop_api_keys RLS + 3 REST routes + 3 actions (desktop-sync.ts, actions-desktop.ts) |
+| 66 | Build Creator UI | deferred |
+| 67 | Build Hub UI | deferred |
 
 ## Blockers/Concerns
 
-None.
+- Migration `20260425000001_phase53_build_creator_foundation.sql` not yet applied to production Supabase. Apply before any UI phase ships.
+- 2 pre-existing TS errors in `performance.ts` (phase 61) and `patch-lifecycle.test.ts` (phase 63) — agents noted these; fix before UI phase ships.
+- Phase 62 created both `card/route.tsx` and a stub `card/route.ts` — the `.ts` stub must be deleted with `git rm` before shipping.
 
 ## Performance Metrics
 
-- Phases shipped this milestone: 30/30
-- Build: clean (0 TypeScript errors; 0 ESLint errors on touched files)
-- New dedicated pages: 30
-- New lib modules: 16
-- New components: ~70
+- Tests: 419/419 passing
+- Build: 0 new TypeScript errors (2 pre-existing from phases 61/63)
+- New lib modules phases 59–65: hub-query (extended), hub-facets, hub-trending, search-advanced, search-analytics, trending, similarity (listSimilarPublic), social, diff, patch-lifecycle, performance, gamification, desktop-sync + 8 actions-*.ts files + 4 API routes
 - No new npm dependencies
-
-## Honest Scope Notes (Schema Gaps)
-
-The following features were pragmatically scoped to what the cached-match schema supports. All flagged in page footers:
-- Dragon/baron/void-grub participation (Phase 20) — needs timeline schema
-- True MMR-based opponent quality (Phase 22) — needs per-match rank lookup
-- Cross-user leaderboards (Phase 31, 33) — needs multi-user backend
-- Team-level funnel detection (Phase 40) — needs team participant data
-- Gold efficiency / item timing (Phase 36) — needs gold_earned + item event columns
-- Season scoping (Phase 26, 29) — needs season tag on matches
-- Roam response / control wards (Phase 41) — needs match timeline
 
 ## Session Continuity
 
-Last session: 2026-04-24
-Stopped at: v1.1 COMPLETE — all 30 phases shipped in auto-mode
-Next action: user verification or plan v1.2 milestone
+Last session: 2026-04-27
+Stopped at: Phase 65 COMPLETE — all logic/API phases done
+Next action: Phase 66 — Build Creator UI
 Resume file: .paul/ROADMAP.md
 
 ---
-*STATE.md — Updated 2026-04-24 — v1.1 CLOSED*
+*STATE.md — Updated 2026-04-27 — Phases 59–65 CLOSED*

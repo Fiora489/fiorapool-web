@@ -73,6 +73,7 @@ const GROUPS: NavGroup[] = [
     label: 'Tools',
     links: [
       { href: '/builds',              label: 'Builds' },
+      { href: '/builds/custom',       label: 'My Builds' },
       { href: '/session',             label: 'Session' },
       { href: '/rivals',              label: 'Rivals' },
       { href: '/export/stats-card',   label: 'Stats Card' },
