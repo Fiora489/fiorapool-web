@@ -314,9 +314,448 @@ export type Database = {
         }
         Relationships: []
       }
+      // ---------------------------------------------------------------------
+      // v1.3 Build Creator tables (Phase 53)
+      // ---------------------------------------------------------------------
+      custom_rune_pages: {
+        Row: {
+          id: string
+          user_id: string
+          name: string
+          primary_style: number
+          keystone: number
+          primary_minors: number[]
+          secondary_style: number
+          secondary_minors: number[]
+          shards: number[]
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          name: string
+          primary_style: number
+          keystone: number
+          primary_minors: number[]
+          secondary_style: number
+          secondary_minors: number[]
+          shards: number[]
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          name?: string
+          primary_style?: number
+          keystone?: number
+          primary_minors?: number[]
+          secondary_style?: number
+          secondary_minors?: number[]
+          shards?: number[]
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      custom_builds: {
+        Row: {
+          id: string
+          user_id: string
+          champion_id: string
+          name: string
+          description_md: string
+          roles: string[]
+          build_tags: string[]
+          patch_tag: string
+          last_validated_patch: string | null
+          combos: string[]
+          max_priority: string | null
+          warding_note: string | null
+          trinket: string | null
+          spell1: string | null
+          spell2: string | null
+          spell_alt_note: string | null
+          rune_page_id: string | null
+          skill_order: number[] | null
+          is_public: boolean
+          opt_in_aggregate: boolean
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          champion_id: string
+          name: string
+          description_md?: string
+          roles?: string[]
+          build_tags?: string[]
+          patch_tag: string
+          last_validated_patch?: string | null
+          combos?: string[]
+          max_priority?: string | null
+          warding_note?: string | null
+          trinket?: string | null
+          spell1?: string | null
+          spell2?: string | null
+          spell_alt_note?: string | null
+          rune_page_id?: string | null
+          skill_order?: number[] | null
+          is_public?: boolean
+          opt_in_aggregate?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          champion_id?: string
+          name?: string
+          description_md?: string
+          roles?: string[]
+          build_tags?: string[]
+          patch_tag?: string
+          last_validated_patch?: string | null
+          combos?: string[]
+          max_priority?: string | null
+          warding_note?: string | null
+          trinket?: string | null
+          spell1?: string | null
+          spell2?: string | null
+          spell_alt_note?: string | null
+          rune_page_id?: string | null
+          skill_order?: number[] | null
+          is_public?: boolean
+          opt_in_aggregate?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      custom_build_blocks: {
+        Row: {
+          build_id: string
+          block_type: string
+          position: number
+          items: Json
+          power_spikes: number[]
+          gold_total: number
+        }
+        Insert: {
+          build_id: string
+          block_type: string
+          position?: number
+          items?: Json
+          power_spikes?: number[]
+          gold_total?: number
+        }
+        Update: {
+          build_id?: string
+          block_type?: string
+          position?: number
+          items?: Json
+          power_spikes?: number[]
+          gold_total?: number
+        }
+        Relationships: []
+      }
+      custom_matchup_notes: {
+        Row: {
+          build_id: string
+          enemy_champion_id: string
+          difficulty: string
+          note: string
+          threats: Json
+        }
+        Insert: {
+          build_id: string
+          enemy_champion_id: string
+          difficulty?: string
+          note?: string
+          threats?: Json
+        }
+        Update: {
+          build_id?: string
+          enemy_champion_id?: string
+          difficulty?: string
+          note?: string
+          threats?: Json
+        }
+        Relationships: []
+      }
+      custom_item_swaps: {
+        Row: {
+          id: string
+          build_id: string
+          condition_text: string
+          from_item: number
+          to_item: number
+          position: number
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          build_id: string
+          condition_text: string
+          from_item: number
+          to_item: number
+          position?: number
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          build_id?: string
+          condition_text?: string
+          from_item?: number
+          to_item?: number
+          position?: number
+          created_at?: string
+        }
+        Relationships: []
+      }
+      build_item_block_templates: {
+        Row: {
+          id: string
+          user_id: string
+          champion_id: string
+          block_type: string
+          items: Json
+          name: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          champion_id: string
+          block_type: string
+          items?: Json
+          name?: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          champion_id?: string
+          block_type?: string
+          items?: Json
+          name?: string
+          created_at?: string
+        }
+        Relationships: []
+      }
+      build_match_tags: {
+        Row: {
+          build_id: string
+          match_id: string
+          user_id: string
+          won: boolean
+          detected_at: string
+        }
+        Insert: {
+          build_id: string
+          match_id: string
+          user_id: string
+          won: boolean
+          detected_at?: string
+        }
+        Update: {
+          build_id?: string
+          match_id?: string
+          user_id?: string
+          won?: boolean
+          detected_at?: string
+        }
+        Relationships: []
+      }
+      saved_searches: {
+        Row: {
+          id: string
+          user_id: string
+          name: string
+          query_json: Json
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          name: string
+          query_json?: Json
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          name?: string
+          query_json?: Json
+          created_at?: string
+        }
+        Relationships: []
+      }
+      hub_search_log: {
+        Row: {
+          id: string
+          query_text: string
+          searched_at: string
+        }
+        Insert: {
+          id?: string
+          query_text: string
+          searched_at?: string
+        }
+        Update: {
+          id?: string
+          query_text?: string
+          searched_at?: string
+        }
+        Relationships: []
+      }
+      search_analytics: {
+        Row: {
+          id: string
+          user_id: string | null
+          query_hash: string
+          query_text: string
+          filters_json: Json
+          searched_at: string
+        }
+        Insert: {
+          id?: string
+          user_id?: string | null
+          query_hash: string
+          query_text: string
+          filters_json?: Json
+          searched_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string | null
+          query_hash?: string
+          query_text?: string
+          filters_json?: Json
+          searched_at?: string
+        }
+        Relationships: []
+      }
+      build_bookmarks: {
+        Row: {
+          id: string
+          user_id: string
+          build_id: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          build_id: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          build_id?: string
+          created_at?: string
+        }
+        Relationships: []
+      }
+      build_collections: {
+        Row: {
+          id: string
+          user_id: string
+          name: string
+          description: string
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          name: string
+          description?: string
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          name?: string
+          description?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      build_collection_items: {
+        Row: {
+          id: string
+          collection_id: string
+          build_id: string
+          position: number
+          added_at: string
+        }
+        Insert: {
+          id?: string
+          collection_id: string
+          build_id: string
+          position: number
+          added_at?: string
+        }
+        Update: {
+          id?: string
+          collection_id?: string
+          build_id?: string
+          position?: number
+        }
+        Relationships: []
+      }
+      desktop_api_keys: {
+        Row: {
+          id: string
+          user_id: string
+          label: string
+          key_hash: string
+          key_prefix: string
+          created_at: string
+          last_used_at: string | null
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          label: string
+          key_hash: string
+          key_prefix: string
+          created_at?: string
+          last_used_at?: string | null
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          label?: string
+          key_hash?: string
+          key_prefix?: string
+          last_used_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
-      [_ in never]: never
+      build_bookmark_counts: {
+        Row: {
+          build_id: string
+          bookmark_count: number
+        }
+        Relationships: []
+      }
+      trending_searches_view: {
+        Row: {
+          query_text: string
+          total_count: number
+          count_7d: number
+          count_30d: number
+          last_seen_at: string
+        }
+        Relationships: []
+      }
     }
     Functions: {
       get_all_matchup_stats: { Args: { p_champion: string }; Returns: Json }
@@ -327,6 +766,10 @@ export type Database = {
         Returns: Json
       }
       get_overview_stats: { Args: { p_recent_limit?: number }; Returns: Json }
+      hub_top_tags: {
+        Args: { p_champion_id?: string; p_patch_tag?: string; p_limit?: number }
+        Returns: Array<{ tag: string; count: number }>
+      }
     }
     Enums: {
       [_ in never]: never

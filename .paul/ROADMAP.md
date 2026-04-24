@@ -15,8 +15,50 @@ FioraPool Web builds from a working authenticated shell through analytics and pr
 | v0.5 | Engagement & Polish | 12–14 | ✅ Complete | 2026-04-24 |
 | v1.0 | Production Ready | 15–17 | ✅ Complete | 2026-04-24 |
 | v1.1 | Post-Launch Fixes | 18–47 | ✅ Complete | 2026-04-24 |
+| v1.2 | Prism Redesign | 48–52 | ✅ Complete | 2026-04-24 |
+| v1.3 | Ultimate Build Creator + Hub | 53–67 | 🚧 Planning | — |
 
-## 🚧 Current Milestone: v1.1 Post-Launch Fixes
+## 🚧 Current Milestone: v1.3 Ultimate Build Creator + Hub
+
+**Goal:** Ship the most complete browser-based LoL build creator on the web, backed by a public Build Hub with community-driven WR tracking and a desktop-sync API surface.
+**Status:** 🚧 Planning — design doc at `.paul/MILESTONE-v1.3-BUILD-CREATOR.md`
+**Phases:** 1 of 15 complete (13 logic + 2 deferred UI)
+
+**Strategy:** domain logic + API first, then two consolidated UI phases at the end.
+
+| Phase | Name | Plans | Status | Completed |
+|-------|------|-------|--------|-----------|
+| 53 | Build Creator Foundation (schema + CRUD) | 1 | Complete ✓ | 2026-04-24 |
+| 54 | Editor — Item Composition logic | 1 | Planned | — |
+| 55 | Editor — Runes + Spells + Skills logic | 1 | Planned | — |
+| 56 | Editor — Matchup + Meta logic | 1 | Planned | — |
+| 57 | Editor — Polish logic (lint/dupe/undo/templates) | 1 | Planned | — |
+| 58 | Hub Query Infrastructure | 1 | Planned | — |
+| 59 | Extended Filter + Search | 1 | Planned | — |
+| 60 | Hub — Social layer logic | 1 | Planned | — |
+| 61 | Performance Tracking (match auto-tag + WR) | 1 | Planned | — |
+| 62 | Visual Renderer + Build Diff (API) | 1 | Planned | — |
+| 63 | Patch Lifecycle (snapshots + diff + staleness) | 1 | Planned | — |
+| 64 | Gamification Hooks (XP events + 6 badge chains) | 1 | Planned | — |
+| 65 | Desktop Sync API | 1 | Planned | — |
+| **66** | **Build Creator UI** | DEFERRED | Stub at `66-00-DEFERRED.md` | — |
+| **67** | **Build Hub UI** | DEFERRED | Stub at `67-00-DEFERRED.md` | — |
+
+### Phase 53: Build Creator Foundation
+**Goal:** Supabase schema (10 tables, RLS-locked), shared types, server actions, and a minimal `/builds/custom` list page. No editor UI yet.
+Plan: `.paul/phases/53-build-creator-foundation/53-01-PLAN.md`
+
+---
+
+## ✅ Completed Milestone: v1.2 Prism Redesign
+
+**Goal:** Web-native redesign — champion-reactive theming, three variable fonts, Magic UI as expressive layer, maximalist motion with reduced-motion fallbacks.
+**Status:** Complete — 2026-04-24
+**Phases:** 48 (Tokens/Fonts/Themes), 49 (Magic UI + Primitive upgrades), 50 (Delight wrappers), 51 (Mobile Dock), 52 (Showcase page passes)
+
+---
+
+## ✅ Completed Milestone: v1.1 Post-Launch Fixes
 
 **Goal:** One dedicated page per feature — full desktop feature parity for web, then asset pipeline and design system pass once all pages exist.
 **Status:** 🚧 In Progress
