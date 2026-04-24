@@ -1,0 +1,37 @@
+type TierTone = 'fragile' | 'developing' | 'resilient' | 'unstoppable'
+
+const TIER_STYLE: Record<TierTone, { bg: string; border: string; text: string }> = {
+  fragile:     { bg: 'bg-rose-500/10',    border: 'border-rose-500/40',    text: 'text-rose-300' },
+  developing:  { bg: 'bg-amber-500/10',   border: 'border-amber-500/40',   text: 'text-amber-300' },
+  resilient:   { bg: 'bg-emerald-500/10', border: 'border-emerald-500/40', text: 'text-emerald-300' },
+  unstoppable: { bg: 'bg-amber-400/10',   border: 'border-amber-400/40',   text: 'text-amber-200' },
+}
+
+export function ComebackScoreCard({
+  score,
+  tier,
+  tierTone,
+  overall,
+}: {
+  score: number
+  tier: string
+  tierTone: TierTone
+  overall: { behindGames: number; behindWins: number; behindWr: number }
+}) {
+  const style = TIER_STYLE[tierTone]
+
+  return (
+    <section className="space-y-3">
+      <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Comeback DNA</h2>
+      <div className={`rounded-lg border p-8 text-center ${style.bg} ${style.border}`}>
+        <p className={`text-xs uppercase tracking-[0.3em] ${style.text}`}>{tier}</p>
+        <p className="mt-2 text-6xl font-extrabold tabular-nums">{score}</p>
+        <p className="mt-1 text-xs text-muted-foreground">comeback score · out of 100</p>
+
+        <div className="mt-4 text-xs text-muted-foreground">
+          Behind at 10 in <strong>{overall.behindGames}</strong> games · Won <strong>{overall.behindWins}</strong> ({overall.behindWr}%)
+        </div>
+      </div>
+    </section>
+  )
+}

@@ -1,0 +1,25 @@
+{
+  "name": "FioraPool Web",
+  "version": "0.0.0",
+  "milestone": {
+    "name": "Foundation",
+    "version": "v0.1.0",
+    "status": "in_progress"
+  },
+  "phase": {
+    "number": 2,
+    "name": "Match History",
+    "status": "in_progress"
+  },
+  "loop": {
+    "plan": null,
+    "position": "IDLE"
+  },
+  "timestamps": {
+    "created_at": "2026-04-17T00:00:00.000Z",
+    "updated_at": "2026-04-18T12:00:00.000Z"
+  },
+  "satellite": {
+    "groom": true
+  }
+}
