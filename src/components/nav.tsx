@@ -96,51 +96,54 @@ export function Nav() {
           FioraPool
         </Link>
 
-        {/* Desktop: grouped dropdowns */}
+        {/* Desktop: clickable group label + hover dropdown */}
         <div className="hidden items-center gap-1 lg:flex">
-          {GROUPS.map(group => (
-            <div
-              key={group.label}
-              className="relative"
-              onMouseEnter={() => setOpenGroup(group.label)}
-              onMouseLeave={() => setOpenGroup(null)}
-            >
-              <button
-                type="button"
-                className={`rounded px-3 py-1.5 text-sm transition-colors ${
-                  isGroupActive(group)
-                    ? 'bg-accent text-foreground font-medium'
-                    : 'text-muted-foreground hover:bg-accent hover:text-foreground'
-                }`}
-                aria-expanded={openGroup === group.label}
-                aria-haspopup="menu"
+          {GROUPS.map(group => {
+            const hubHref = group.links[0]?.href ?? '/dashboard'
+            return (
+              <div
+                key={group.label}
+                className="relative"
+                onMouseEnter={() => setOpenGroup(group.label)}
+                onMouseLeave={() => setOpenGroup(null)}
               >
-                {group.label}
-              </button>
-              {openGroup === group.label && (
-                <div
-                  role="menu"
-                  className="absolute left-0 top-full z-50 mt-1 min-w-[200px] rounded-lg border border-border bg-card p-1 shadow-xl"
+                <Link
+                  href={hubHref}
+                  aria-expanded={openGroup === group.label}
+                  aria-haspopup="menu"
+                  className={`block rounded px-3 py-1.5 text-sm transition-colors ${
+                    isGroupActive(group)
+                      ? 'bg-accent text-foreground font-medium'
+                      : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+                  }`}
                 >
-                  {group.links.map(link => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      role="menuitem"
-                      aria-current={isActive(link.href) ? 'page' : undefined}
-                      className={`block rounded px-3 py-1.5 text-sm transition-colors ${
-                        isActive(link.href)
-                          ? 'bg-accent text-foreground font-medium'
-                          : 'text-muted-foreground hover:bg-accent hover:text-foreground'
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+                  {group.label}
+                </Link>
+                {openGroup === group.label && (
+                  <div
+                    role="menu"
+                    className="absolute left-0 top-full z-50 mt-1 min-w-[200px] rounded-lg border border-border bg-card p-1 shadow-xl"
+                  >
+                    {group.links.map(link => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        role="menuitem"
+                        aria-current={isActive(link.href) ? 'page' : undefined}
+                        className={`block rounded px-3 py-1.5 text-sm transition-colors ${
+                          isActive(link.href)
+                            ? 'bg-accent text-foreground font-medium'
+                            : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </div>
 
         {/* Mobile: hamburger */}
