@@ -122,23 +122,27 @@ export function Nav() {
                 {openGroup === group.label && (
                   <div
                     role="menu"
-                    className="absolute left-0 top-full z-50 mt-1 min-w-[200px] rounded-lg border border-border bg-card p-1 shadow-xl"
+                    className="absolute left-0 top-full z-50 min-w-[200px] pt-1"
                   >
-                    {group.links.map(link => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        role="menuitem"
-                        aria-current={isActive(link.href) ? 'page' : undefined}
-                        className={`block rounded px-3 py-1.5 text-sm transition-colors ${
-                          isActive(link.href)
-                            ? 'bg-accent text-foreground font-medium'
-                            : 'text-muted-foreground hover:bg-accent hover:text-foreground'
-                        }`}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
+                    {/* Inner panel; outer wrapper has pt-1 instead of mt-1 so the hover
+                        zone touches the trigger — no dead gap that dismisses the menu. */}
+                    <div className="rounded-lg border border-border bg-card p-1 shadow-xl">
+                      {group.links.map(link => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          role="menuitem"
+                          aria-current={isActive(link.href) ? 'page' : undefined}
+                          className={`block rounded px-3 py-1.5 text-sm transition-colors ${
+                            isActive(link.href)
+                              ? 'bg-accent text-foreground font-medium'
+                              : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+                          }`}
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
