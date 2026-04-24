@@ -151,9 +151,8 @@ supabase start    # Local Supabase (DB + Auth + Studio)
 3. **Recharts over D3** — Handles all required chart types with React-native components; D3 is overkill for a solo project.
 4. **Route Handlers over tRPC** — No tRPC overhead; plain REST is readable and sufficient.
 5. **Riot API server-side only** — API key security is non-negotiable; no client-side Riot calls ever.
-6. **LCU API deferred** — Champion select assistant requires a local desktop bridge; parked until a companion Tauri/Electron app is warranted.
-7. **JSONB for match raw_data** — Riot's match-v5 payload is large and evolves patch-to-patch; avoids migration hell while allowing computed columns.
-8. **Dark mode default** — League players expect dark UI; light mode is optional.
+6. **JSONB for match raw_data** — Riot's match-v5 payload is large and evolves patch-to-patch; avoids migration hell while allowing computed columns.
+7. **Dark mode default** — League players expect dark UI; light mode is optional.
 
 ---
 

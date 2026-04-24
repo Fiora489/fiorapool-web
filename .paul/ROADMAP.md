@@ -9,11 +9,173 @@ FioraPool Web builds from a working authenticated shell through analytics and pr
 | Version | Name | Phases | Status | Completed |
 |---------|------|--------|--------|-----------|
 | v0.1 | Foundation | 1–2 | ✅ Complete | 2026-04-18 |
-| v0.2 | Core Product | 3–5 | 📋 Planned | - |
-| v0.3 | Deep Analytics | 6–8 | 📋 Planned | - |
-| v0.4 | AI Suite | 9–11 | 📋 Planned | - |
-| v0.5 | Engagement & Polish | 12–14 | 📋 Planned | - |
-| v1.0 | Production Ready | 15–17 | 📋 Planned | - |
+| v0.2 | Core Product | 3–5 | ✅ Complete | 2026-04-24 |
+| v0.3 | Deep Analytics | 6–8 | ✅ Complete | 2026-04-24 |
+| v0.4 | AI Suite | 9–11 | ✅ Complete | 2026-04-24 |
+| v0.5 | Engagement & Polish | 12–14 | ✅ Complete | 2026-04-24 |
+| v1.0 | Production Ready | 15–17 | ✅ Complete | 2026-04-24 |
+| v1.1 | Post-Launch Fixes | 18–47 | ✅ Complete | 2026-04-24 |
+
+## 🚧 Current Milestone: v1.1 Post-Launch Fixes
+
+**Goal:** One dedicated page per feature — full desktop feature parity for web, then asset pipeline and design system pass once all pages exist.
+**Status:** 🚧 In Progress
+**Phases:** 0 of 30 complete
+
+| Phase | Name | Plans | Status | Completed |
+|-------|------|-------|--------|-----------|
+| 18 | ARAM Analytics | 1 | Complete ✓ | 2026-04-24 |
+| 19 | Team Composition | 1 | Complete ✓ | 2026-04-24 |
+| 20 | Void Grubs & Objectives | 1 | Complete ✓ | 2026-04-24 |
+| 21 | Clutch Factor | 1 | Complete ✓ | 2026-04-24 |
+| 22 | Opponent Quality Tracker | 1 | Complete ✓ | 2026-04-24 |
+| 23 | Stats Card Generator | 1 | Complete ✓ | 2026-04-24 |
+| 24 | Badge Showcase Export | 1 | Complete ✓ | 2026-04-24 |
+| 25 | Rival Tracking | 1 | Complete ✓ | 2026-04-24 |
+| 26 | Season Recap | 1 | Complete ✓ | 2026-04-24 |
+| 27 | Badge Chains | 1 | Complete ✓ | 2026-04-24 |
+| 28 | Champion Mastery Badges | 1 | Complete ✓ | 2026-04-24 |
+| 29 | Season Medals | 1 | Complete ✓ | 2026-04-24 |
+| 30 | XP Multiplier Visualiser | 1 | Complete ✓ | 2026-04-24 |
+| 31 | Weekly XP Race | 1 | Complete ✓ | 2026-04-24 |
+| 32 | Prestige Titles | 1 | Complete ✓ | 2026-04-24 |
+| 33 | Prestige Leaderboard | 1 | Complete ✓ | 2026-04-24 |
+| 34 | Consistency Score | 1 | Complete ✓ | 2026-04-24 |
+| 35 | Momentum Tracker | 1 | Complete ✓ | 2026-04-24 |
+| 36 | Resource Efficiency Index | 1 | Complete ✓ | 2026-04-24 |
+| 37 | Role Passport | 1 | Complete ✓ | 2026-04-24 |
+| 38 | Comeback DNA | 1 | Complete ✓ | 2026-04-24 |
+| 39 | Late-Game Scaling Score | 1 | Complete ✓ | 2026-04-24 |
+| 40 | Kill Funnelling Detection | 1 | Complete ✓ | 2026-04-24 |
+| 41 | Map Awareness Score | 1 | Complete ✓ | 2026-04-24 |
+| 42 | Game Quality Calendar | 1 | Complete ✓ | 2026-04-24 |
+| 43 | Champion Radar | 1 | Complete ✓ | 2026-04-24 |
+| 44 | Win Condition Flow (Sankey) | 1 | Complete ✓ | 2026-04-24 |
+| 45 | Stat Correlation Matrix | 1 | Complete ✓ | 2026-04-24 |
+| 46 | Asset Pipeline | 1 | Complete ✓ | 2026-04-24 |
+| 47 | Design System | 1 | Complete ✓ | 2026-04-24 |
+
+### Phase 18: ARAM Analytics
+**Goal:** Dedicated `/analytics/aram` page with ARAM-specific win rate, champion performance, and penta/quadra highlights.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 19: Team Composition
+**Goal:** Dedicated `/analytics/team-comp` page with 6-archetype classifier — shows which comp archetype you tend to play and win with.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 20: Void Grubs & Objectives
+**Goal:** Dedicated `/analytics/objectives` page tracking void grub control, dragon soul, baron, and herald rates.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 21: Clutch Factor
+**Goal:** Dedicated `/analytics/clutch` page — measures performance in close games (sub-5% gold diff at 20min, comeback wins, late-game closes).
+Plans: TBD (defined during /paul:plan)
+
+### Phase 22: Opponent Quality Tracker
+**Goal:** Dedicated `/analytics/opponent-quality` page — ranks opponents faced by MMR/rank bracket and shows win rate vs each tier.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 23: Stats Card Generator
+**Goal:** Dedicated `/export/stats-card` page — Hero, Scoreboard, and Timeline layout selector with PNG download.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 24: Badge Showcase Export
+**Goal:** Dedicated `/export/badges` page — select badges to showcase, generate PNG for social sharing.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 25: Rival Tracking
+**Goal:** Dedicated `/rivals` page — add rivals by Riot ID, view their recent matches, head-to-head stats.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 26: Season Recap
+**Goal:** Dedicated `/recap` page — season summary card: peak rank, best champion, win rate, most played mode, highlight badges.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 27: Badge Chains
+**Goal:** Dedicated `/progression/badges/chains` page — all 10 chains, 60 badges, chain progress bars, earned dates.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 28: Champion Mastery Badges
+**Goal:** Dedicated `/progression/badges/mastery` page — 680 mastery badges grid, filterable by champion, tier, earned status.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 29: Season Medals
+**Goal:** Dedicated `/progression/medals` page — seasonal achievement medals, criteria, earned dates, tier breakdown.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 30: XP Multiplier Visualiser
+**Goal:** Dedicated `/progression/xp-multiplier` page — shows active multipliers (streak, win streak, champion bonus) and projected XP curves.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 31: Weekly XP Race
+**Goal:** Dedicated `/progression/weekly-race` page — weekly leaderboard, your rank, XP earned this week, rival positions.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 32: Prestige Titles
+**Goal:** Dedicated `/progression/prestige/titles` page — all unlocked and locked titles, unlock criteria, equip selector.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 33: Prestige Leaderboard
+**Goal:** Dedicated `/progression/prestige/leaderboard` page — global prestige ranking among tracked summoners.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 34: Consistency Score
+**Goal:** Dedicated `/progression/consistency` page — rolling consistency score breakdown, contributing factors, trend line.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 35: Momentum Tracker
+**Goal:** Dedicated `/coaching/momentum` page — win/loss momentum curve over last N games, streak analysis.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 36: Resource Efficiency Index
+**Goal:** Dedicated `/coaching/rei` page — CS efficiency, gold efficiency, item timing benchmarks vs peer cohort.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 37: Role Passport
+**Goal:** Dedicated `/coaching/role-passport` page — performance breakdown per role, strongest/weakest role analysis.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 38: Comeback DNA
+**Goal:** Dedicated `/coaching/comeback-dna` page — how often and how well you reverse losing games, key comeback triggers.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 39: Late-Game Scaling Score
+**Goal:** Dedicated `/coaching/scaling` page — performance delta early vs late game, scaling champion affinity.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 40: Kill Funnelling Detection
+**Goal:** Dedicated `/coaching/kill-funnel` page — identifies games where gold/kills were funnelled and measures impact.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 41: Map Awareness Score
+**Goal:** Dedicated `/coaching/map-awareness` page — vision score trend, ward placement, roam response rate.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 42: Game Quality Calendar
+**Goal:** Dedicated `/visualisations/calendar` page — heatmap of game quality (performance score) by day/week/month.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 43: Champion Radar
+**Goal:** Dedicated `/visualisations/radar` page — hexagonal radar chart of champion performance across 6 stat axes.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 44: Win Condition Flow
+**Goal:** Dedicated `/visualisations/sankey` page — Sankey diagram showing win condition pathways (early/mid/late, objectives, teamfight).
+Plans: TBD (defined during /paul:plan)
+
+### Phase 45: Stat Correlation Matrix
+**Goal:** Dedicated `/visualisations/correlation` page — correlation matrix of stats vs win rate (vision score, CS, KDA, damage share, etc).
+Plans: TBD (defined during /paul:plan)
+
+### Phase 46: Asset Pipeline
+**Goal:** Rich Data Dragon assets throughout — champion splash arts, ability/item/rune icons, animated backgrounds, versioned CDN caching.
+Plans: TBD (defined during /paul:plan)
+
+### Phase 47: Design System
+**Goal:** Full design pass — token system, typography scale, Magic UI integration, component audit, loading states, dark mode refinement.
+Plans: TBD (defined during /paul:plan)
+
+---
 
 ## ✅ Completed Milestone: v0.1 Foundation
 

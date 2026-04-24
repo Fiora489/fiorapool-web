@@ -1,5 +1,7 @@
+import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { logout } from './actions'
+import { SparklesText } from '@/components/ui/sparkles-text'
 
 async function getAnalytics(userId: string) {
   const { createClient } = await import('@/lib/supabase/server')
@@ -63,7 +65,13 @@ export default async function DashboardPage() {
     <main className="min-h-screen p-6">
       <div className="max-w-4xl mx-auto space-y-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold">Dashboard</h1>
+          <SparklesText
+            className="font-display text-3xl font-bold sm:text-4xl"
+            colors={{ first: 'var(--primary)', second: '#ffffff' }}
+            sparklesCount={5}
+          >
+            Dashboard
+          </SparklesText>
           <div className="flex items-center gap-4">
             <a
               href="/api/share/card"
@@ -82,7 +90,7 @@ export default async function DashboardPage() {
 
         {!stats ? (
           <div className="rounded-lg border border-border p-6 text-sm text-muted-foreground">
-            No match data yet — go to <a href="/matches" className="underline">Matches</a> and hit Sync.
+            No match data yet — go to <Link href="/matches" className="underline">Matches</Link> and hit Sync.
           </div>
         ) : (
           <>

@@ -1,6 +1,10 @@
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { computeOpponentQuality } from '@/lib/analytics'
+import { MatchupOverview } from '@/components/analytics/opponent-quality/MatchupOverview'
+import { BestWorstMatchups } from '@/components/analytics/opponent-quality/BestWorstMatchups'
+import { LanePhaseVsOpponent } from '@/components/analytics/opponent-quality/LanePhaseVsOpponent'
+import { AllOpponentsTable } from '@/components/analytics/opponent-quality/AllOpponentsTable'
 
 export default async function OpponentQualityPage() {
   const supabase = await createClient()
@@ -13,16 +17,19 @@ export default async function OpponentQualityPage() {
     .order('captured_at', { ascending: false })
 
   const stats = computeOpponentQuality(matches ?? [])
+  const totalGames = stats.opponents.reduce((s, o) => s + o.games, 0)
 
   if (stats.opponents.length === 0) {
     return (
       <main className="min-h-screen px-4 py-6 sm:p-8">
-        <div className="max-w-2xl mx-auto space-y-4">
-          <h1 className="text-2xl font-bold">Opponent Quality</h1>
-          <p className="text-sm text-muted-foreground">
-            No opponent data yet — opponent tracking requires enemy champion data.
-          </p>
+        <div className="mx-auto max-w-4xl space-y-4">
           <Link href="/analytics" className="text-sm text-muted-foreground hover:text-foreground">← Analytics</Link>
+          <h1 className="text-2xl font-bold">Opponent Matchups</h1>
+          <div className="rounded-lg border bg-card px-6 py-10 text-center">
+            <p className="text-sm text-muted-foreground">
+              No opponent data yet — opponent matchups require enemy laner data on your matches.
+            </p>
+          </div>
         </div>
       </main>
     )
@@ -30,30 +37,36 @@ export default async function OpponentQualityPage() {
 
   return (
     <main className="min-h-screen px-4 py-6 sm:p-8">
-      <div className="max-w-2xl mx-auto space-y-6">
+      <div className="mx-auto max-w-4xl space-y-8">
+        {/* Header */}
         <div className="space-y-1">
           <Link href="/analytics" className="text-sm text-muted-foreground hover:text-foreground">← Analytics</Link>
-          <h1 className="text-2xl font-bold">Opponent Quality</h1>
+          <h1 className="text-2xl font-bold">Opponent Matchups</h1>
+          <p className="text-sm text-muted-foreground">
+            {totalGames} lane game{totalGames === 1 ? '' : 's'} analysed
+          </p>
         </div>
 
-        <div className="rounded-lg border p-4 space-y-2">
-          {stats.opponents.slice(0, 10).map(opp => (
-            <div key={opp.name} className="flex items-center justify-between">
-              <span className="text-sm">{opp.name}</span>
-              <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                <span>{opp.games}G</span>
-                <span>{opp.wins}W {opp.games - opp.wins}L</span>
-                <span className={`rounded-full px-2 py-0.5 font-medium ${
-                  opp.winRate >= 50
-                    ? 'bg-blue-500/10 text-blue-400'
-                    : 'bg-red-500/10 text-red-400'
-                }`}>
-                  {opp.winRate}%
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+        <MatchupOverview
+          uniqueOpponents={stats.uniqueOpponents}
+          totalGames={totalGames}
+          overallWinRate={stats.overallWinRate}
+        />
+
+        <BestWorstMatchups
+          hardest={stats.hardestMatchups}
+          easiest={stats.easiestMatchups}
+        />
+
+        <LanePhaseVsOpponent rows={stats.lanePhaseVsOpponent} />
+
+        <AllOpponentsTable rows={stats.opponents} />
+
+        <p className="border-t pt-4 text-xs italic text-muted-foreground">
+          Per-match opponent rank/MMR is not in the schema, so this page focuses on matchup performance
+          (champion-vs-champion). True MMR-based opponent quality would need a Riot summoner-rank lookup
+          per match — deferred to a future phase.
+        </p>
       </div>
     </main>
   )

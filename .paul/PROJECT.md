@@ -41,7 +41,6 @@ None yet.
 
 ### Out of Scope
 
-- LCU API / in-client champion select overlay — requires local desktop bridge, deferred to future Tauri/Electron companion
 - Pro build scraper (OP.gg / U.gg) — pending ToS clarification; Data Dragon only until resolved
 - Community hub (Phase 17) — deferred to final phase, approach TBD (GitHub repo vs Supabase table)
 
@@ -72,7 +71,6 @@ Desktop FioraPool has 30 live features + 70 planned. This web version is a fresh
 - Rate limiting: ≤10 Claude AI reviews per user per day
 - Riot match-v5 payload stored as JSONB — avoids migration hell as schema evolves
 - Dev API key: 100 req/2min (production key requires Riot approval)
-- LCU API (champion select): not achievable from a hosted web app — deferred
 
 ### Business Constraints
 
@@ -94,7 +92,6 @@ Desktop FioraPool has 30 live features + 70 planned. This web version is a fresh
 | Recharts over D3 | Handles all required chart types with React-native components; D3 overkill for solo project | 2026-04-17 | Active |
 | Route Handlers over tRPC | No overhead for solo project; plain REST is readable and debuggable | 2026-04-17 | Active |
 | Riot API server-side only | API key security non-negotiable; no client-side Riot calls ever | 2026-04-17 | Active |
-| LCU API deferred | Requires local desktop bridge process; not achievable from hosted web app | 2026-04-17 | Active |
 | JSONB for match raw_data | Riot match-v5 payload is large and evolves patch-to-patch | 2026-04-17 | Active |
 | Dark mode default | League players expect dark UI; light mode is optional not primary | 2026-04-17 | Active |
 

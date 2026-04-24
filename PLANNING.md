@@ -35,7 +35,6 @@ Build vs buy: no existing tool combines Claude-powered coaching, a deep badge/pr
 - Riot API calls are **server-side only** — API key never reaches the browser
 - Claude API calls are **server-side only** — key never reaches the browser
 - Dark mode default — League aesthetic, high-contrast dashboards
-- LCU API (champion select, in-client overlay) is **deferred** — requires a local desktop bridge process, not achievable from a hosted web app
 
 ---
 
@@ -286,9 +285,8 @@ Mobile-first. All views must be fully functional on a phone in portrait mode. De
 3. **Recharts over D3:** D3 is overkill for solo dev. Recharts handles all required chart types (Sankey via recharts-sankey or visx, radar, line, bar, heatmap) with React-native components.
 4. **Route Handlers over tRPC:** No tRPC overhead for a solo project. Plain REST is readable, debuggable, and sufficient.
 5. **Riot API server-side only:** API key security is non-negotiable. No client-side Riot calls ever.
-6. **LCU API deferred:** Champion select assistant and in-client overlay require a local desktop bridge. Parked until a companion Tauri/Electron app is warranted.
-7. **JSONB for match raw_data:** Riot's match-v5 payload is large and evolves patch-to-patch. Storing raw JSON avoids migration hell while still allowing computed columns.
-8. **Dark mode default:** League players expect dark UI. Light mode is optional, not primary.
+6. **JSONB for match raw_data:** Riot's match-v5 payload is large and evolves patch-to-patch. Storing raw JSON avoids migration hell while still allowing computed columns.
+7. **Dark mode default:** League players expect dark UI. Light mode is optional, not primary.
 
 ---
 
@@ -317,9 +315,7 @@ Mobile-first. All views must be fully functional on a phone in portrait mode. De
 - `04-projects/fiorapool-v5/planning/league-features-roadmap.md` — full feature roadmap (Tier 0/1/2)
 - `04-projects/fiorapool-v5/planning/capability-spec-claude-league.md` — Claude capability specs per feature
 - `05-knowledge/research/active/riot-api-licensing-2026.md` — Riot API ToS research (ADR pending)
-- `05-knowledge/research/active/tauri-2x-production-patterns-2026.md` — Tauri patterns (future desktop bridge reference)
 - [Riot Developer Portal](https://developer.riotgames.com/)
-- [LCU API Docs (community)](https://hextechdocs.dev/)
 - [Magic UI](https://magicui.design/)
 - [shadcn/ui](https://ui.shadcn.com/)
 
