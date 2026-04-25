@@ -20,6 +20,16 @@ function relativeTime(iso: string): string {
 
 export function BuildList({ builds }: { builds: BuildListItem[] }) {
   return (
+    <div>
+      <div className="mb-4 flex items-center justify-between">
+        <p className="text-sm text-muted-foreground">{builds.length} build{builds.length !== 1 ? 's' : ''}</p>
+        <Link
+          href="/builds/custom/new"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+        >
+          + New Build
+        </Link>
+      </div>
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {builds.map((b) => (
         <Link
@@ -55,6 +65,7 @@ export function BuildList({ builds }: { builds: BuildListItem[] }) {
           </div>
         </Link>
       ))}
+    </div>
     </div>
   )
 }
