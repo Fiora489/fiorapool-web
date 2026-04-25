@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { LayoutDashboard, BarChart3, Compass, Trophy, LineChart, Wrench } from 'lucide-react'
+import { LayoutDashboard, BarChart3, Compass, Trophy, LineChart, Wrench, Swords } from 'lucide-react'
 import { Dock, DockIcon } from '@/components/ui/dock'
 
 type NavLink = { href: string; label: string }
@@ -70,10 +70,15 @@ const GROUPS: NavGroup[] = [
     ],
   },
   {
+    label: 'Builds',
+    links: [
+      { href: '/builds',              label: 'Build Hub' },
+      { href: '/builds/custom',       label: 'My Builds' },
+    ],
+  },
+  {
     label: 'Tools',
     links: [
-      { href: '/builds',              label: 'Builds' },
-      { href: '/builds/custom',       label: 'My Builds' },
       { href: '/session',             label: 'Session' },
       { href: '/rivals',              label: 'Rivals' },
       { href: '/export/stats-card',   label: 'Stats Card' },
@@ -198,12 +203,12 @@ export function Nav() {
 }
 
 const DOCK_ITEMS: { label: string; href: string; Icon: React.ComponentType<{ className?: string }> }[] = [
-  { label: 'Dashboard',     href: '/dashboard',                           Icon: LayoutDashboard },
-  { label: 'Analytics',     href: '/analytics',                           Icon: BarChart3 },
-  { label: 'Coaching',      href: '/coaching',                            Icon: Compass },
-  { label: 'Progression',   href: '/progress',                            Icon: Trophy },
-  { label: 'Charts',        href: '/charts',                              Icon: LineChart },
-  { label: 'Tools',         href: '/rivals',                              Icon: Wrench },
+  { label: 'Dashboard',   href: '/dashboard', Icon: LayoutDashboard },
+  { label: 'Analytics',   href: '/analytics', Icon: BarChart3 },
+  { label: 'Coaching',    href: '/coaching',  Icon: Compass },
+  { label: 'Progression', href: '/progress',  Icon: Trophy },
+  { label: 'Builds',      href: '/builds',    Icon: Swords },
+  { label: 'Tools',       href: '/session',   Icon: Wrench },
 ]
 
 function MobileDock({ pathname }: { pathname: string }) {

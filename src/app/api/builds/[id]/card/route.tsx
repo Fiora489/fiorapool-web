@@ -32,8 +32,9 @@ function tagColor(index: number) {
 
 export async function GET(
   _request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
+  const { id } = await params
   const supabase = createSupabaseClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -44,7 +45,7 @@ export async function GET(
     .select(
       'id, user_id, champion_id, name, build_tags, patch_tag, is_public, roles',
     )
-    .eq('id', params.id)
+    .eq('id', id)
     .single()
 
   if (error || !buildData) {
