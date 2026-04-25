@@ -11,6 +11,7 @@ export async function GET() {
     .select('win,kills,deaths,assists,cs,game_duration_seconds,champion_name,queue_type,captured_at')
     .eq('user_id', user.id)
     .order('captured_at', { ascending: false })
+    .limit(500)
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
   if (!matches?.length) return NextResponse.json({ empty: true })

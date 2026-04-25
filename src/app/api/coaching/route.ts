@@ -15,6 +15,7 @@ export async function GET() {
     .select('win,kills,deaths,assists,cs,game_duration_seconds,damage_dealt,vision_score,wards_placed,wards_killed,role,champion_name,queue_type,captured_at')
     .eq('user_id', user.id)
     .order('captured_at', { ascending: false })
+    .limit(500)
 
   const m = matches ?? []
   return NextResponse.json({

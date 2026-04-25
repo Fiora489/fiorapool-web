@@ -45,17 +45,18 @@ export async function POST(request: Request) {
   // End any existing active session
   await sb.from('sessions').update({ active: false, ended_at: new Date().toISOString() }).eq('user_id', user.id).eq('active', true)
 
-  const { data: counts } = await supabase.from('matches').select('win', { count: 'exact' }).eq('user_id', user.id)
-  const total = counts?.length ?? 0
-  const wins = counts?.filter((m: { win: boolean }) => m.win).length ?? 0
+  const [{ count: total }, { count: wins }] = await Promise.all([
+    supabase.from('matches').select('id', { count: 'exact', head: true }).eq('user_id', user.id),
+    supabase.from('matches').select('id', { count: 'exact', head: true }).eq('user_id', user.id).eq('win', true),
+  ])
 
   const { data: session } = await sb.from('sessions').insert({
     user_id: user.id, goal_type, goal_target,
     champion_lock: champion_lock || null,
     role_lock: role_lock || null,
     starting_lp: starting_lp ?? null,
-    games_at_start: total,
-    wins_at_start: wins,
+    games_at_start: total ?? 0,
+    wins_at_start: wins ?? 0,
   }).select().single()
 
   return NextResponse.json({ session })
