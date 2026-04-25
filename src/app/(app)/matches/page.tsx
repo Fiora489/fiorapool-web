@@ -31,9 +31,7 @@ export default async function MatchesPage() {
           <h1 className="text-2xl font-bold">Match History</h1>
           <div className="flex items-center gap-2">
             {matches && matches.length > 0 && <ObsidianExport matches={matches} />}
-            <form action="/api/matches/sync" method="POST">
-              <SyncButton />
-            </form>
+            <SyncButton />
           </div>
         </div>
 

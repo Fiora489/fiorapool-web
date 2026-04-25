@@ -53,6 +53,7 @@ export async function POST() {
     .select('win,kills,deaths,assists,cs,game_duration_seconds,champion_name,queue_type')
     .eq('user_id', user.id)
     .order('captured_at', { ascending: false })
+    .limit(500)
 
   const stats = computeStats(allMatches ?? [])
   const { level } = levelFromXp(stats.totalXp)
@@ -68,6 +69,5 @@ export async function POST() {
     )
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
-  return NextResponse.redirect(new URL('/matches', siteUrl))
+  return NextResponse.json({ ok: true, synced: toFetch.length })
 }
