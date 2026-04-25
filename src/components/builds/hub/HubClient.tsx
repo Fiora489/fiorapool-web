@@ -3,7 +3,7 @@
 import { useState, useTransition, useCallback, useRef } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import type { HubFacets, HubQuery, HubQueryResult } from '@/lib/types/builds'
-import { serializeHubQuery } from '@/lib/builds/hub-query'
+import { serializeHubQuery } from '@/lib/builds/hub-query-utils'
 import { bookmarkBuild, unbookmarkBuild } from '@/lib/builds/actions-social'
 import { fetchPublicBuildDetail, type HubBuildDetail } from '@/lib/builds/hub-detail'
 
