@@ -186,7 +186,7 @@ export async function autoTagBuildForMatch(
     const existing = blocksByBuild.get(b.build_id) ?? []
     existing.push({
       block_type: b.block_type as BlockType,
-      items: b.items as BuildBlockItem[],
+      items: b.items as unknown as BuildBlockItem[],
     })
     blocksByBuild.set(b.build_id, existing)
   }

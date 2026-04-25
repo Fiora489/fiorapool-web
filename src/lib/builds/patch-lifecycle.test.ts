@@ -19,7 +19,7 @@ import { getPatchBumpList, getStalenessReport, bulkMarkValidated } from './patch
 
 function makeSupabase(rows: unknown[] = [], updateCount = 0) {
   // SELECT chain: .from().select().eq() — eq() resolves
-  const selectQueryResult = { data: rows.map(r => ({ ...r })), error: null }
+  const selectQueryResult = { data: rows.map(r => ({ ...(r as object) })), error: null }
   const selectChain = {
     eq: vi.fn().mockResolvedValue(selectQueryResult),
     in: vi.fn().mockReturnThis(),
