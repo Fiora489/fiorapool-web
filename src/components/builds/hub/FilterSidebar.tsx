@@ -41,7 +41,6 @@ function SideSection({
           textTransform: 'uppercase',
           letterSpacing: '0.2em',
           color: 'var(--muted-foreground)',
-          opacity: 0.7,
         }}
       >
         {title}
@@ -126,7 +125,6 @@ function RadioRow({
             fontFamily: 'var(--font-mono)',
             fontSize: 10,
             color: 'var(--muted-foreground)',
-            opacity: 0.5,
           }}
         >
           {count}
@@ -212,7 +210,6 @@ function CheckRow({
             fontFamily: 'var(--font-mono)',
             fontSize: 10,
             color: 'var(--muted-foreground)',
-            opacity: 0.5,
           }}
         >
           {count}

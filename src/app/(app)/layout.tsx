@@ -27,9 +27,9 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       <ScrollProgressBar />
       <a href="#main-content" className="skip-link">Skip to content</a>
       <Nav />
-      <div className="flex-1" id="main-content" tabIndex={-1}>
+      <main className="flex-1" id="main-content" tabIndex={-1}>
         <PageStagger>{children}</PageStagger>
-      </div>
+      </main>
     </div>
   )
 }

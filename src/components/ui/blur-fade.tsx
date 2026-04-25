@@ -85,6 +85,7 @@ export function BlurFade({
           ...(shouldTransitionFilter ? { filter: { duration } } : {}),
         }}
         className={className}
+        aria-hidden={isInView ? undefined : true}
         {...props}
       >
         {children}
