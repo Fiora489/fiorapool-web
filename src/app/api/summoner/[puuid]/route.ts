@@ -18,6 +18,7 @@ export async function GET(
     .from('summoner_profiles')
     .select('*')
     .eq('puuid', puuid)
+    .eq('user_id', user.id)
     .maybeSingle()
 
   if (error) {

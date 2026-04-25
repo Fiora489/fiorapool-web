@@ -3,7 +3,7 @@ import { getMatchIds, getMatch, extractMatchRow } from '@/lib/riot-matches'
 import { computeStats, checkEarnedBadges, levelFromXp } from '@/lib/xp'
 import { NextResponse } from 'next/server'
 
-export async function POST() {
+export async function POST(request: Request) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -68,6 +68,5 @@ export async function POST() {
     )
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
-  return NextResponse.redirect(new URL('/matches', siteUrl))
+  return NextResponse.redirect(new URL('/matches', request.url), { status: 303 })
 }

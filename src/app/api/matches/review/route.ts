@@ -13,8 +13,11 @@ export async function POST(request: Request) {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-  const { gameId } = await request.json()
-  if (!gameId) return NextResponse.json({ error: 'gameId required' }, { status: 400 })
+  const body = await request.json().catch(() => null) as { gameId?: unknown } | null
+  const gameId = typeof body?.gameId === 'string' ? body.gameId.trim() : ''
+  if (!gameId || gameId.length > 64 || !/^[A-Za-z0-9_:-]+$/.test(gameId)) {
+    return NextResponse.json({ error: 'Valid gameId required' }, { status: 400 })
+  }
 
   const sb = db(supabase)
 
